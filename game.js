@@ -1,0 +1,60 @@
+class Game {
+    constructor() {}
+  
+    getState() {
+      var gameStateRef = database.ref("gameState");
+      gameStateRef.on("value", function(data) {
+        gameState = data.val();
+      });
+    }
+    update(state) {
+      database.ref("/").update({
+        gameState: state
+      });
+    }
+  
+    start() {
+      player = new Player();
+      playerCount = player.getCount();
+  
+      form = new Form();
+      form.display();
+    }
+
+    handleElements() {
+        form.hide();
+        form.titleImg.position(40, 50);
+        form.titleImg.class("gameTitleAfterEffect");
+      }
+    
+      play() {
+        this.handleElements();
+    
+        Player.getPlayersInfo();
+    
+        if (allPlayers !== undefined) {
+          image(track, 0, -height * 5, width, height * 6);
+        
+
+        var index = 0;
+      for (var plr in allPlayers) {
+        //add 1 to the index for every loop
+        index = index + 1;
+
+        //use data form the database to display the cars in x and y direction
+    
+
+        if(index===player.index){
+         
+            this.check(index);
+          
+        }
+
+      }
+
+      
+
+      drawSprites();
+    }
+    }
+}
